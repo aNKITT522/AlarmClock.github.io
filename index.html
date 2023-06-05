@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Alarm clock</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+  <section class="container  text-center  ">
+      <h1>Alarm clock</h1>
+        <div class = "row clockDisplay ">
+          <div class="col-md-4 col-lg-4 col-sm-4 col-12 d-block m-auto clockSetting ">
+            
+              <span id="spann" class="d-block"></span>
+            
+        </div>
+        
+        </div>
+    </section>
+
+   
+
+
+    <section class="container3 text-center text-white position-static ">
+      <div class="row">
+        <div class=" addAlarm d-block m-auto ">
+
+            <select id="hourSelect">
+              <option value="" disabled selected >Hours</option>
+            </select>
+
+            <select id="minuteSelect">
+              <option value="" >Minutes</option>
+            </select>
+
+            <select id="meridian" name="Meridian">
+              <option value="AM">AM</option>
+              <option value="PM">PM</option>
+            </select>
+            
+          <button class="btn btn-warning text-white btn-lg " onclick="alarmFxn()"> ADD ALARM</button>
+         
+        </div>
+      </div>
+    </section>
+
+    <section class="container2 activeAlarm text-center text-danger scrollable-section" id="actv">
+       
+      <div class=" alarmList d-block m-auto list-unstyled " id="myList" >
+        <!-- <ul id="myList" class="list-unstyled">
+        </ul> -->
+      </div>
+     
+    </section>
+
+    
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.clockDisplay{
+  /* border: 1px solid blue; */
+  background-color: aliceblue;
+  /* border-radius: 35%; */
+  /* background-image: url("./img/6.jpg"); */
+  /* width: 100%;
+  height: 100px; */
+
+
+  
+}
+
+.clockSetting{
+  border: 1px solid black;
+  height: 250px;
+  width: 200px;
+  border-radius: 50%;
+  background-color: rgb(48, 93, 50);
+  visibility: hidden;
+  
+  
+}
+.clockSetting #spann{
+  visibility: visible;
+
+}
+#spann{
+  /* border: 1px solid red; */
+  padding-top: 100px;
+  font-size: x-large;
+  font-weight: 700;
+  text-shadow: 0cqb;
+}
+.alarmList{
+  border: 1px solid rgb(38, 102, 34);
+  background-color: rgb(4, 75, 4);
+  width: 30%;
+}
+.activeAlarm{
+ 
+  position: relative;
+}
+.scrollable-section {
+  overflow: auto;
+  max-height: 150px; /* Adjust the max height as per your needs */
+}
+
+.activeAlarm #deleteButton{
+float: right;
+margin-right: 32px;
+}
+
+
+/* ------------------*/
+.addAlarm{
+  border: 1px solid rgb(14, 47, 103);
+  width: 50%;
+  position: relative;
+}
+.addAlarm #hourSelect{
+  width: 25%;
+  float: left;
+  margin-top: 10px;
+  
+}
+.addAlarm #minuteSelect{
+  width: 25%;
+  float: left;
+  margin-top: 10px;
+}
+.addAlarm #meridian{
+  width: 25%;
+  float: left;
+  margin-top: 10px;
+}
+.addAlarm button{
+  width: 25%;
+}
+
+
+
+
+
+/* .............. */
+#labell{
+  position: relative;
+  display: inline-block;
+  width:3.2rem;
+  height: 1.5rem;
+  margin-left: 35px;
+}
+
+
+.toggleLabel input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 2.5px;
+  background-color: rgb(236, 233, 233);
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+
+/* delete button*/
+#deleteButton{
+  color: #dd0a0a;
+  border: none;
+  background: none;
+  font-size: larger;
+
+}
+
+
+/* .toggleLabel {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* .toggleLabel input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+} */
+
+/* .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body {
+    background-color: #02050b;
+  }
+  .hide {
+    display: none;
+  }
+  .container {
+    background-color: #6c4763;
+    width: 90%;
+    max-width: 31.25em;
+    padding: 3.12em 5em;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 1em;
+    border-radius: 0.5em;
+  }
+  .clockDisplay {
+    font-size: 2.18em;
+    text-align: center;
+    font-family: "Roboto Mono", monospace;
+  }
+  .inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 2em;
+  }
+  .inputs input {
+    width: 2.8em;
+    font-size: 1.3em;
+    border: 1px solid #000000;
+    border-radius: 0.3em;
+    padding: 0.4em 0.2em;
+  }
+  #set {
+    background-color: #377dff;
+    border: none;
+    padding: 0.9em 1.8em;
+    display: block;
+    margin: 1.5em auto 0 auto;
+    border-radius: 2em;
+    color: #ffffff;
+  }
+  .alarm {
+    display: grid;
+    grid-template-columns: 8fr 2fr 2fr;
+    gap: 1em;
+    margin-top: 1.5em;
+    align-items: center;
+    border-bottom: 1px solid #898f9b;
+    padding-bottom: 0.6em;
+  }
+  .alarm input[type="checkbox"] {
+    appearance: none;
+    height: 2em;
+    width: 3.75em;
+    background-color: #e2e2ec;
+    border-radius: 1.25em;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+  }
+  .alarm input[type="checkbox"]:before {
+    position: absolute;
+    content: "";
+    background-color: #757683;
+    height: 1.43em;
+    width: 1.43em;
+    border-radius: 50%;
+    top: 0.25em;
+    left: 0.25em;
+  }
+  .alarm input[type="checkbox"]:checked {
+    background-color: #2f0b8a;
+  }
+  .alarm input[type="checkbox"]:checked:before {
+    background-color: #c70e0e;
+    left: 2em;
+  }
+  .deleteButton {
+    background-color: transparent;
+    font-size: 1.5em;
+    color: #de0a0a;
+    border: none;
+    cursor: pointer;
+  } */
+  
