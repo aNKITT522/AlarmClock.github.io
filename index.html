@@ -27,7 +27,7 @@
   <section class="container  text-center  ">
       <h1>Alarm clock</h1>
         <div class = "row clockDisplay ">
-          <div class="col-md-4 col-lg-4 col-sm-4 col-12 d-block m-auto clockSetting ">
+          <div class="col-md-4 col-lg-4 col-sm-10 col-12 d-block m-auto clockSetting ">
             
               <span id="spann" class="d-block"></span>
             
@@ -36,12 +36,9 @@
         </div>
     </section>
 
-   
-
-
-    <section class="container3 text-center text-white position-static ">
-      <div class="row">
-        <div class=" addAlarm d-block m-auto ">
+    <section class=" container text-center text-white position-static ">
+      <div class="row addAlarmRow ">
+        <div class=" col-md-6 col-lg-6 col-sm-10 col-12 addAlarm d-block m-auto p-0">
 
             <select id="hourSelect">
               <option value="" disabled selected >Hours</option>
@@ -56,19 +53,18 @@
               <option value="PM">PM</option>
             </select>
             
-          <button class="btn btn-warning text-white btn-lg " onclick="alarmFxn()"> ADD ALARM</button>
+          <button class="btn btn-warning text-white btn-lg " id="btnn" onclick="alarmFxn()"> ADD ALARM</button>
          
-        </div>
-      </div>
+           </div>
+          </div>
     </section>
 
-    <section class="container2 activeAlarm text-center text-danger scrollable-section" id="actv">
-       
-      <div class=" alarmList d-block m-auto list-unstyled " id="myList" >
-        <!-- <ul id="myList" class="list-unstyled">
-        </ul> -->
-      </div>
-     
+    <section class="container activeAlarm text-center text-danger scrollable-section" id="actv">
+       <div class="row">
+        <div class=" col-md-4 col-lg-4 col-sm-10 col-12  alarmList d-block m-auto list-unstyled " id="myList" >
+        </div>
+       </div>
+        
     </section>
 
     

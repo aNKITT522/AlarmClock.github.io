@@ -5,15 +5,7 @@
 }
 
 .clockDisplay{
-  /* border: 1px solid blue; */
   background-color: aliceblue;
-  /* border-radius: 35%; */
-  /* background-image: url("./img/6.jpg"); */
-  /* width: 100%;
-  height: 100px; */
-
-
-  
 }
 
 .clockSetting{
@@ -58,29 +50,32 @@ margin-right: 32px;
 
 
 /* ------------------*/
+/* #addAlarmRow{
+  width: 500px;
+} */
 .addAlarm{
-  border: 1px solid rgb(14, 47, 103);
-  width: 50%;
-  position: relative;
+  border: 5px solid #cac9c9;
+
 }
 .addAlarm #hourSelect{
-  width: 25%;
+  width: 22%;
+  height: 100%;
   float: left;
   margin-top: 10px;
   
 }
 .addAlarm #minuteSelect{
-  width: 25%;
+  width: 22%;
   float: left;
   margin-top: 10px;
 }
 .addAlarm #meridian{
-  width: 25%;
+  width: 22%;
   float: left;
   margin-top: 10px;
 }
 .addAlarm button{
-  width: 25%;
+  width:auto;
 }
 
 
@@ -146,53 +141,78 @@ input:checked + .slider:before {
 }
 
 
-/* .toggleLabel {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+
+/*--------------media query------------------*/
+
+@media (min-width: 992px){
+  
 }
 
-/* .toggleLabel input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-} */
+@media(min-width:768px) and (max-width:991px){
 
-/* .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 34px;
+.addAlarm{
+  border: 5px solid #cac9c9;
+
 }
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
+.addAlarm #hourSelect{
+  width: 22%;
+  float: left;
+  margin-top: 10px;
+  
 }
-
-input:checked + .slider {
-  background-color: #2196F3;
+.addAlarm #minuteSelect{
+  width: 22%;
+  float: left;
+  margin-top: 10px;
 }
+.addAlarm #meridian{
+  width: 22%;
+  float: left;
+  margin-top: 10px;
+}
+.addAlarm button{
+  width:30%;
+  font-size: 10px;
+  margin-top: 10px;
+  /* padding-top: 0; */
+}
+}
+@media(min-width:575px) and (max-width:767px){
 
-input:checked + .slider:before {
-  transform: translateX(26px);
-}  */
+}
+@media(min-width:480px) and (max-width:574px){
 
+}
+@media(max-width : 479px){
+  .addAlarm{
+    border: 5px solid #cac9c9;
+  
+  }
+  .addAlarm #hourSelect{
+    width: 22%;
+    height: 100%;
+    float: left;
+    margin-top: 10px;
+    
+  }
+  .addAlarm #minuteSelect{
+    width: 22%;
+    height: 100%;
+    float: left;
+    margin-top: 10px;
+  }
+  .addAlarm #meridian{
+    width: 22%;
+    height: 100%;
+    float: left;
+    margin-top: 10px;
+  }
+  .addAlarm button{
+    width:30%;
+    font-size: 10px;
+  }
 
-
+}
 
 
 
