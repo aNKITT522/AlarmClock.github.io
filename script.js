@@ -1,10 +1,6 @@
 const alarmsArray = [];
-let initialHour = 0,
-  initialMinute = 0,
-  alarmIndex = 0;
-  let alarmSound = new Audio("./song/jaiSriRam.mp3");
-
-
+let alarmIndex = 0;
+let alarmSound = new Audio("./song/jaiSriRam.mp3");
 
 
 function appendZero(abc){   
@@ -15,20 +11,6 @@ function appendZero(abc){
 }
 }
 
-let date = new Date();
-    let [hours,minutes,seconds] = [
-        appendZero(date.getHours()),
-        appendZero(date.getMinutes()),
-        appendZero(date.getSeconds()),
-    ]
-    let merid = " AM" ;
-        if(hours>12){
-            hours = hours-12;
-            // hours= appendZero(hours);
-            merid= " PM";
-         }
-      
-
 function time(){
   let date = new Date();
     let [hours,minutes,seconds] = [
@@ -37,10 +19,13 @@ function time(){
         date.getSeconds(),
     ]
     let merid = "AM" ;
-        if(hours>12){
+        if(hours>=13){
             hours = hours-12;
             // hours= appendZero(hours);
             merid= "PM";
+         }
+         if(hours ==12){
+          merid = "PM"
          }
          hours = appendZero(hours);
          minutes= appendZero(minutes);
@@ -49,30 +34,31 @@ function time(){
     const clock = (hours) + " : " + (minutes) + " : " + (seconds) + (" ")+ (merid) ;
     document.getElementById('spann').innerHTML = clock;
 
-    let actvAlarm = document.getElementById("actv");
-if(alarmsArray.length===0){
-  actvAlarm.style.display = "none";
-}else{
-  actvAlarm.style.display = "block";
-}
+//below two fxn is just for regular checkups as this "time()" fxn get check at every interval for working the clock 
 
- //Alarm
- alarmsArray.forEach((alarm) => {
-  if (alarm.isActive) {
+//alarm list to show when there is any alarmObject
+        let actvAlarm = document.getElementById("actv");
+         if(alarmsArray.length===0){
+           actvAlarm.style.display = "none";
+           }else{
+           actvAlarm.style.display = "block";
+         }
+
+    //Alarm to play when it exist and when time  matches the alarm info
+      alarmsArray.forEach((alarm) => {
+        if (alarm.isActive) {
     
-    if ((alarm.alarmHour==hours) && (alarm.alarmMinute==minutes) && (alarm.meridianInput == merid) ) {
+          if ((alarm.alarmHour==hours) && (alarm.alarmMinute==minutes) && (alarm.meridianInput == merid) ) {
       
-      alarmSound.play();
-      alarmSound.loop = true;
-    }
-  }
-   });
+             alarmSound.play();
+             alarmSound.loop = true;
+             }
+            }
+          });
   }
   setInterval(time,100);
-// console.log("yes it active" + alarm.meridianInput + merid); 
-    // console.log("yes it active" +  alarm.alarmHour  + hours); 
-    // console.log("yes it active" + alarm.alarmMinute + seconds); 
- // console.log("yess");
+
+/*---------------------------structuring the alarm list--------------------------------*/
 
 // making the input of alarm from where  user provide the details of alarm
 const selectHour = document.getElementById("hourSelect");
@@ -89,26 +75,6 @@ const selectMinute = document.getElementById("minuteSelect");
       option.text = i;
       selectMinute.appendChild(option);
     }
-
-
-
-//Search for value in object and finding the alarm Object from array and send the alarm object with resp as yes it exist in the array 
-const searchObject = (parameter, value) => {
-  let alarmObject,
-    objIndex,
-    exists = false;
-  alarmsArray.forEach((alarm, index) => {
-    if (alarm[parameter] == value) {
-      exists = true;
-      alarmObject = alarm;
-      objIndex = index;
-      console.log(exists,alarmObject,objIndex);
-      return false;
-    }
-  });
-  return [exists, alarmObject, objIndex];
-};
-
 
 function displayAlarm(alarm) {
   const { id, alarmHour, alarmMinute,meridianInput } = alarm;
@@ -173,6 +139,7 @@ function displayAlarm(alarm) {
 
 }//<-----< end of displayAlarm fxn---
 
+/*-------------------------------making alarm work -------------------------- */
 
 
 function alarmFxn(){
@@ -203,9 +170,25 @@ function alarmFxn(){
      }//<-----alarmFxn end--<
 
 
+//Search for value in object and finding the alarm Object from array and send the alarm object with resp as yes it exist in the array 
+       const searchObject = (parameter, value) => {
+         let alarmObject,
+           objIndex,
+           exists = false;
+         alarmsArray.forEach((alarm, index) => {
+           if (alarm[parameter] == value) {
+             exists = true;
+             alarmObject = alarm;
+             objIndex = index;
+             console.log(exists,alarmObject,objIndex);
+             return false;
+           }
+         });
+         return [exists, alarmObject, objIndex];
+       };
 
+  /*----fxn for slider button if it on then ---Start Alarm -----------*/
 
-  //fxn for slider button if it on then ---Start Alarm 
   //only work for this fxn is to make the status active of an alarm object
   const startAlarm = (e) => {
       //retriving alarmDiv info which we make above by taking an unique id from data-id attribute
@@ -235,6 +218,7 @@ const deleteAlarm = (e) => {
   let searchId = e.target.parentElement.parentElement.getAttribute("data-id");
   let [exists, obj, index] = searchObject("id", searchId);
   if (exists) {
+    alarmSound.pause();
     e.target.parentElement.parentElement.parentElement.remove(); //removing from "li" node As alarmDiv parent = li
     alarmsArray.splice(index, 1);// removing from array
   }
